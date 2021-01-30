@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="model.User"%> 
+    <%@page import="model.Alldattesformat"%> 
     
 <!DOCTYPE html>
 <html>
@@ -18,19 +18,25 @@
       <thead>
         <tr>
         <%
-        	User user = (User) request.getAttribute("user");
+        	Alldattesformat alldattesformat = (Alldattesformat) request.getAttribute("allformat");
         %>
-          <th>Email : </th>
-          <th>Name : </th>
-          <th>Date : </th>
+          <th>Simple Date Format : </th>
+          <th>Date with month disabled : </th>
+          <th>Date with most functionality : </th>
+          <th>Date with Min Max</th>
           <th style="width: 36px;"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><%=user.getEmail() %></td>
-          <td><%=user.getName() %></td>
-          <td><%=user.getDatebirthday() %></td>
+          <td><%= alldattesformat.getDatesimple() %></td>
+          
+          <td><%=alldattesformat.getDatewithmonthdisabled() %></td>
+          
+          <td><%=alldattesformat.getDatepickerallchangeandtwomonth() %></td>
+          
+           <td><%=alldattesformat.getDatepickermax()%></td>
+          
         </tr>
    
       </tbody>

@@ -18,9 +18,28 @@
 <title>Insert title here</title>
 
 <script>
-	$(document).ready(function() {
-	    $("#start_datepicker").datepicker();
-	});
+         $(function() {
+        	 
+        	$( "#simpledatepicker" ).datepicker();
+        	 
+            $( "#datepickermonthdisabled" ).datepicker({
+               changeYear:true,
+               //numberOfMonths:[1,2]
+            });
+            
+            $( "#datepickerallchangeandtwomonth" ).datepicker({
+            	changeMonth : true,
+                changeYear:true,
+                numberOfMonths:[2,2] // two column and two row
+             });
+            
+            $( "#datepickermax" ).datepicker({ 
+            	minDate: "-3M -15D", 
+            	maxDate: "+3M +15D",
+            	 });
+            
+         });
+         
 </script>
 
 <style>
@@ -108,31 +127,34 @@ button:hover {
 </head>
 <body>
 <form method="post" , action="Register">
+
   <label>
-    <p class="label-txt">ENTER YOUR EMAIL</p>
-    <input type="text" class="input" name="email">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-  <label>
-    <p class="label-txt">ENTER YOUR NAME</p>
-    <input type="text" class="input" name="name">
-    <div class="line-box">
-      <div class="line"></div>
-    </div>
-  </label>
-  <label>
-    <p class="label-txt">ENTER YOUR PASSWORD</p>
-    <input type="password" class="input">
+    <p class="label-txt">SIMPLE DATEPICKER</p>
+    <input type="text" class="input" name="simpledatepicker" id="simpledatepicker">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
   
    <label>
-    <p class="label-txt">ENTER YOUR BIRTHDAY</p>
-    <input type="text" class="input" name="birthdaydate" id="start_datepicker">
+    <p class="label-txt">DATEPICKER WITH MONTH DISABLED</p>
+    <input type="text" class="input" name="datepickermonthdisabled" id="datepickermonthdisabled">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+   <label>
+    <p class="label-txt">DATEPICKER MOST FUNCTION</p>
+    <input type="text" class="input" name="datepickerallchangeandtwomonth" id="datepickerallchangeandtwomonth">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  
+   <label>
+    <p class="label-txt">DATEPICKER with Min Max</p>
+    <input type="text" class="input" name="datepickermax" id="datepickermax">
     <div class="line-box">
       <div class="line"></div>
     </div>

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.User;
+import model.Alldattesformat;
 
 @WebServlet("/Register")
 public class RegisterServlet extends HttpServlet{
@@ -23,13 +23,15 @@ public class RegisterServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
-		String name = request.getParameter("name");
-		String date = request.getParameter("birthdaydate");
+		String datepickermonthdisabled = request.getParameter("datepickermonthdisabled");
+		String simpledate = request.getParameter("simpledatepicker");
+		String datepickerallchangeandtwomonth = request.getParameter("datepickerallchangeandtwomonth");
+		String datepickermax = request.getParameter("datepickermax");
 		
-		User user = new User(name, email, date);
+		Alldattesformat allformat = new Alldattesformat(simpledate,datepickermonthdisabled,datepickerallchangeandtwomonth
+				,datepickermax);
 		
-		request.setAttribute("user", user);
+		request.setAttribute("allformat", allformat);
 		
 		request.getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);
 
